@@ -5,38 +5,38 @@ const ical = require('ical-generator');
 const moment = require('moment');
 
 
-const titleClass = ".btIPTX";
+const titleClass = ".hbZeKu";
 //const matchClass = "li[data-testid='games-on-date']";
-const matchClass = ".jWGbFY";
+const matchClass = ".gehImT";
 // const dateClass = ".bVBHJp";
-const dateClass = ".keiYNe";
+const dateClass = ".emDkPM";
 // const timeClass = "svg[name='clock'] + div";
-const timeClass = ".khmeEf";
+const timeClass = ".dTddCR";
 // const timeClass = "svg[name*='calendar'] + div";
 // const homeTeamClass = "img[data-testid*='home-logo'] + span";
-const homeTeamClass = ".kJZFCG + div:nth-child(1)"
+const homeTeamClass = ".cdnZHA + div:nth-child(1)"
 // const awayTeamClass = "img[data-testid*='away-logo'] + span";
-const awayTeamClass = ".kJZFCG + div:nth-child(3)"
+const awayTeamClass = ".cdnZHA + div:nth-child(3)"
 // const venueClass = "a[data-testid*='court']";
-const teamClass = ".uheqx";
-const venueClass = ".ivbMVO";
+const teamClass = ".iXloFG";
+const venueClass = ".gIKUwU";
 // const linkClass = "a[data-testid*='fixture']";
-const linkClass = ".iKClUy";
+const linkClass = ".gdEmqr";
 const baseUrl = 'https://www.playhq.com/';
 
 const calendar = ical({name: 'Some Title I Need To Get From The Page'});
 
 const parseHtml = function(context, html) {
     const $ = cheerio.load(html);
-    //context.log('We got it!');
+    context.log('We got it!');
 
-    //context.log(html);
+    context.log(html);
 
     var calendarTitle = $(titleClass).text();
     var calendar = ical({name: calendarTitle});
 
     $(matchClass).each(function() {
-      //context.log('Found an event!');
+      context.log('Found an event!');
       var timeString = $(this).find(timeClass).text();
       var timeBits = timeString.split(',');
 
@@ -91,6 +91,7 @@ const parseHtml = function(context, html) {
 }
 
 const fetchSchedule = function(context, url) {
+  context.log('About to fetch schedule');
   return axios({
     method: 'GET',
     url: url,
@@ -99,6 +100,7 @@ const fetchSchedule = function(context, url) {
     }
   })
   .then(function(response) {
+    context.log('Got response - now parsing');
     return parseHtml(context, response.data);
   })
   .catch((error) => {context.log('An error occurred: ' + error); return null;} );

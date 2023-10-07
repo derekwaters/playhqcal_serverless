@@ -17,6 +17,9 @@ app.http('FetchCal', {
 		// McKinnon Cougars U16.4
 		scheduleUrl = 'https://www.playhq.com/basketball-victoria/org/mckinnon-cougars-basketball-club/5f84fbd9/victorian-junior-basketball-league-2023/teams/mckinnon-u16-boys-4/ae7ea468';
 
+		// Chargers U18 Joaquin
+		scheduleUrl = 'https://www.playhq.com/basketball-victoria/org/carnegie-basketball-club/e064387a/junior-domestic-u8-u20-summer-202324/teams/carnegie-chargers-u18-boys-joaquin/e025f609';
+
 		if (request.query.get('url'))
 		{
 			scheduleUrl = request.query.get('url');
@@ -25,6 +28,7 @@ app.http('FetchCal', {
         context.log(`Getting schedule for "${scheduleUrl}"`);
 
 		let calendar = await fetchSchedule(context, scheduleUrl);
+        context.log(`Are we done?`);
 		return { body: calendar.toString() };
 
 		/*
