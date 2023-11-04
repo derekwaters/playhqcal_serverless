@@ -2,7 +2,7 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
 const ical = require('ical-generator');
-const moment = require('moment');
+const moment = require('moment-timezone');
 
 
 const titleClass = ".hbZeKu";
@@ -39,6 +39,17 @@ const parseHtml = function(context, html, debugHtml) {
     var calendarTitle = $(titleClass).text();
     var calendar = ical({name: calendarTitle});
 
+    /*
+    var tmpDate = new Date();
+    var tzOffset = -tmpDate.getTimezoneOffset();
+    var stringTz;
+    if (tzOffset < 0) {
+      stringTz = " -" + (String((-tzOffset) / 60)).padStart(2, '0') + (String((-tzOffset) % 60)).padStart(2, '0');
+    } else {
+      stringTz = " +" + (String(tzOffset / 60)).padStart(2, '0') + (String(tzOffset % 60)).padStart(2, '0');
+    }
+    */
+
     $(matchClass).each(function() {
       context.log('Found an event!');
       var timeString = $(this).find(timeClass).text();
@@ -49,12 +60,18 @@ const parseHtml = function(context, html, debugHtml) {
       var dateTime = $(this).find(dateClass).text() + ' ' +
         timeBits[0];
 
+      // dateTime = dateTime + stringTz;
       context.log('Got DateTime: ' + dateTime);
-      var startDate = moment(dateTime);
+      // var startDate = moment(dateTime, "dddd, D MMMM YYYY hh:mm A ZZ");
+      var startDate = moment.tz(dateTime, "dddd, D MMMM YYYY hh:mm A", "Australia/Melbourne");
+
+      // Check moment date!
+      context.log(' Parsed to: ' + startDate.format());
 
       // if (moment().isBefore(startDate))
       {
-        var endDate = moment(dateTime).add(1, 'h');
+        var endDate = startDate;
+        endDate.add(1, 'h');
         //context.log(startDate);
         //context.log(endDate);
 
