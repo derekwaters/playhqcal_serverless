@@ -6,13 +6,13 @@ app.http('FetchCal', {
     methods: ['GET'],
     authLevel: 'anonymous',
     handler: async (request, context) => {
-		context.log('Http function processing starting');
+		context.log(`Http function processing starting`);
 		let teamParam = request.query.get('team');
-		if (teamParam === undefined)
-		{
-			teamParam = 'gus_u16s';
-		}
-        context.log('Retrieving team "${teamParam}"');
+		teamParam = (teamParam == null) ? 'gus_u16s' : teamParam;
+		let debugHtml = request.query.get('debugHtml');
+		debugHtml = (debugHtml != null);
+
+        context.log(`Retrieving team "${teamParam}"`);
 
 		let scheduleUrlMap = {
 			"gus_u16s" : "https://www.playhq.com/basketball-victoria/org/carnegie-basketball-club/e064387a/junior-domestic-u8-u20-summer-202324/teams/carnegie-chargers-u16-boys-joaquin-gold/26a5bdab",
@@ -32,7 +32,7 @@ app.http('FetchCal', {
 
         context.log(`Getting schedule for "${scheduleUrl}"`);
 
-		let calendar = await fetchSchedule(context, scheduleUrl);
+		let calendar = await fetchSchedule(context, scheduleUrl, debugHtml);
         context.log(`Are we done?`);
 		return { body: calendar.toString() };
 

@@ -28,11 +28,13 @@ const baseUrl = 'https://www.playhq.com/';
 
 const calendar = ical({name: 'Some Title I Need To Get From The Page'});
 
-const parseHtml = function(context, html) {
+const parseHtml = function(context, html, debugHtml) {
     const $ = cheerio.load(html);
     context.log('We got it!');
 
-    context.log(html);
+    if (debugHtml) {
+      context.log(html);
+    }
 
     var calendarTitle = $(titleClass).text();
     var calendar = ical({name: calendarTitle});
