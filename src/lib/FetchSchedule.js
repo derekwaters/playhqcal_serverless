@@ -70,7 +70,7 @@ const parseHtml = function(context, html, debugHtml) {
 
       // if (moment().isBefore(startDate))
       {
-        var endDate = startDate;
+        var endDate = startDate.clone();
         endDate.add(1, 'h');
         //context.log(startDate);
         //context.log(endDate);
