@@ -8,7 +8,7 @@ app.http('FetchCal', {
     handler: async (request, context) => {
 		context.log(`Http function processing starting`);
 		let teamParam = request.query.get('team');
-		teamParam = (teamParam == null) ? 'gus_u16' : teamParam;
+		teamParam = (teamParam == null) ? 'angus_u16' : teamParam;
 		let debugHtml = request.query.get('debugHtml');
 		debugHtml = (debugHtml != null);
 
