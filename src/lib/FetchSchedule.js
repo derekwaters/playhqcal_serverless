@@ -14,9 +14,11 @@ const dateClass = ".emDkPM";
 const timeClass = ".dTddCR";
 // const timeClass = "svg[name*='calendar'] + div";
 // const homeTeamClass = "img[data-testid*='home-logo'] + span";
-const homeTeamClass = ".cdnZHA + div:nth-child(1)"
+// const homeTeamClass = ".cdnZHA + div:nth-child(1)"
+const homeTeamClass = ".eYUIma"
 // const awayTeamClass = "img[data-testid*='away-logo'] + span";
-const awayTeamClass = ".cdnZHA + div:nth-child(3)"
+// const awayTeamClass = ".cdnZHA + div:nth-child(3)"
+const awayTeamClass = ".xsZMh"
 // const venueClass = "a[data-testid*='court']";
 const teamClass = ".iXloFG";
 const venueClass = ".gIKUwU";
