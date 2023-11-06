@@ -88,7 +88,7 @@ const parseHtml = function(context, html, debugHtml) {
               start: startDate,
               end: endDate,
               summary: homeTeam + ' vs ' + awayTeam,
-              description: homeTeam + ' vs ' + awayTeam + '\nLocation: ' + venueName + '(' + venueUrl + ')\nLink: ' + url,
+              description: homeTeam + ' vs ' + awayTeam + '\nLocation: ' + venueName + ' (' + venueUrl + ')\nLink: ' + baseUrl + url,
               location: venue,
               url: baseUrl + url
           });
