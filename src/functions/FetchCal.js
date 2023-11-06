@@ -17,8 +17,9 @@ app.http('FetchCal', {
 		let scheduleUrlMap = {
 			"angus_u16" : "https://www.playhq.com/basketball-victoria/org/carnegie-basketball-club/e064387a/junior-domestic-u8-u20-summer-202324/teams/carnegie-chargers-u16-boys-joaquin-gold/26a5bdab",
 			"angus_u18" : "https://www.playhq.com/basketball-victoria/org/carnegie-basketball-club/e064387a/junior-domestic-u8-u20-summer-202324/teams/carnegie-chargers-u18-boys-joaquin/e025f609",
-// 			"angus_rep"  : "",
-			"angus_tour" : "https://www.playhq.com/basketball-victoria/org/southern-peninsula-tournament/iathletic-southern-peninsula-tournament-2023/teams/mckinnon-u16-boys-1/0f42d65c"
+ 			"angus_rep"  : "https://www.playhq.com/basketball-victoria/org/mckinnon-cougars-basketball-club/5f84fbd9/victorian-junior-basketball-league-2024/teams/mckinnon-u16-boys-1/3bcae747",
+			"angus_tour" : "https://www.playhq.com/basketball-victoria/org/southern-peninsula-tournament/iathletic-southern-peninsula-tournament-2023/teams/mckinnon-u16-boys-1/0f42d65c",
+			"jacko_u16" : "https://www.playhq.com/basketball-victoria/org/carnegie-basketball-club/e064387a/junior-domestic-u8-u20-summer-202324/teams/carnegie-chargers-u16-boys-owen/e829b923"
 		}
 
 		if (scheduleUrlMap[teamParam] === undefined)
@@ -33,8 +34,15 @@ app.http('FetchCal', {
         context.log(`Getting schedule for "${scheduleUrl}"`);
 
 		let calendar = await fetchSchedule(context, scheduleUrl, debugHtml);
+		calendar.name =
         context.log(`Are we done?`);
-		return { body: calendar.toString() };
+		return {
+			headers: {
+				'Content-Type': 'text/calendar',
+				'Content-Disposition': 'attachment; filename="calendar.ical"'
+			},
+			body: calendar.toString()
+		};
 
 		/*
         const name = request.query.get('name') || await request.text() || 'world';
