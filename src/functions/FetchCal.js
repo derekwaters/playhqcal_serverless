@@ -39,7 +39,7 @@ app.http('FetchCal', {
 		return {
 			headers: {
 				'Content-Type': 'text/calendar',
-				'Content-Disposition': 'attachment; filename="calendar.ical"'
+				'Content-Disposition': 'inline'
 			},
 			body: calendar.toString()
 		};
