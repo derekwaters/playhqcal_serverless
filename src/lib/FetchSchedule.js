@@ -20,6 +20,9 @@ const parseHtml = function(context, html, debugHtml) {
     const $ = cheerio.load(html);
     context.log('We got it!');
 
+    const locMatch = RegExp(/q=(-?[0-9]+\.[0-9]+),(-?[0-9]+\.[0-9]+)$/, 'i');
+
+
     if (debugHtml) {
       context.log(html);
     }
@@ -65,6 +68,18 @@ const parseHtml = function(context, html, debugHtml) {
         else
         {
           var venue = $(this).find(venueClass).text();
+          var venueUrl = $(this).find(venueClass).attr('href');
+          if ((locData = locMatch.exec(venueUrl)) !== null)
+          {
+            venue = {
+              title: venue,
+              geo: {
+                lat: parseFloat(locData[1]),
+                lon: parseFloat(locData[2])
+              }
+            }
+          }
+
           var url = $(this).find(linkClass).attr('href');
 
           calendar.createEvent({
