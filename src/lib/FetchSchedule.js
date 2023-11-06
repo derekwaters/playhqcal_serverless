@@ -20,7 +20,7 @@ const homeTeamClass = ".eYUIma"
 // const awayTeamClass = ".cdnZHA + div:nth-child(3)"
 const awayTeamClass = ".xsZMh"
 // const venueClass = "a[data-testid*='court']";
-const teamClass = ".iXloFG";
+const teamClass = ".jXoewb";
 const venueClass = ".gIKUwU";
 // const linkClass = "a[data-testid*='fixture']";
 const linkClass = ".gdEmqr";
