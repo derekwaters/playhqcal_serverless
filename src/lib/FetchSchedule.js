@@ -67,17 +67,19 @@ const parseHtml = function(context, html, debugHtml) {
         }
         else
         {
-          var venue = $(this).find(venueClass).text();
+          var venueName = $(this).find(venueClass).text();
           var venueUrl = $(this).find(venueClass).attr('href');
           if ((locData = locMatch.exec(venueUrl)) !== null)
           {
             venue = {
-              title: venue,
+              title: venueName,
               geo: {
                 lat: parseFloat(locData[1]),
                 lon: parseFloat(locData[2])
               }
             }
+          } else {
+            venue = venueName;
           }
 
           var url = $(this).find(linkClass).attr('href');
@@ -86,7 +88,7 @@ const parseHtml = function(context, html, debugHtml) {
               start: startDate,
               end: endDate,
               summary: homeTeam + ' vs ' + awayTeam,
-              description: homeTeam + ' vs ' + awayTeam,
+              description: homeTeam + ' vs ' + awayTeam + '\nLocation: ' + venueName + '(' + venueUrl + ')\nLink: ' + url,
               location: venue,
               url: baseUrl + url
           });
