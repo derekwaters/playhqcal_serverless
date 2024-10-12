@@ -6,12 +6,12 @@ const moment = require('moment-timezone');
 
 
 const titleClass = ".kgDRPd";
-const matchClass = ".gehImT";
+const matchClass = ".iSdlQK";//".gehImT";
 const dateClass = ".emDkPM";
 const timeClass = ".dTddCR";
-const homeTeamClass = ".eYUIma"
-const awayTeamClass = ".xsZMh"
-const teamClass = ".jXoewb";
+const homeTeamClass = ".eYUIma"   // sc-jEACwC sc-12j2xsj-3 xsZMh cdnZHA | sc-dhKdcB dojxmI
+const awayTeamClass = ".xsZMh"    // sc-jEACwC sc-12j2xsj-3 xsZMh cdnZHA | sc-dhKdcB dojxmI
+const teamClass = ".dojxmI"; //".jXoewb";
 const venueClass = ".gIKUwU";
 const linkClass = ".gdEmqr";
 const baseUrl = 'https://www.playhq.com';
