@@ -16,6 +16,8 @@ app.http('FetchCal', {
 
 		let scheduleUrlMap = {
 			"angus_u18": "https://www.playhq.com/basketball-victoria/org/carnegie-basketball-club/e064387a/vofs-junior-domestic-u8-u20-summer-202425/teams/carnegie-chargers-u18-boys-greg-gold/ff08dd3a",
+			"angus_rep": "https://www.playhq.com/basketball-victoria/org/mckinnon-cougars-basketball-club/5f84fbd9/victorian-junior-basketball-league-2025/teams/mckinnon-u18-boys-1/c5d5e1ff",
+			"angus_sptour": "https://www.playhq.com/basketball-victoria/org/southern-peninsula-tournament/new-balance-representative-tournament-2024/teams/mckinnon-u18-boys-1/dd753d2b",
 			//"angus_u16" : "https://www.playhq.com/basketball-victoria/org/carnegie-basketball-club/e064387a/vofs-junior-domestic-u8-u20-winter-2024/teams/carnegie-chargers-u16-boys-joaquin-gold/80a05482",
 			//"angus_u18" : "https://www.playhq.com/basketball-victoria/org/carnegie-basketball-club/e064387a/vofs-junior-domestic-u8-u20-winter-2024/teams/carnegie-chargers-u18-boys-joaquin/e6fd2ac8",
  			//"angus_rep"  : "https://www.playhq.com/basketball-victoria/org/mckinnon-cougars-basketball-club/5f84fbd9/victorian-junior-basketball-league-2024/teams/mckinnon-u16-boys-1/3bcae747",
