@@ -15,7 +15,7 @@ app.http('FetchCal', {
         context.log(`Retrieving team "${teamParam}"`);
 
 		let scheduleUrlMap = {
-			"angus_u18": "https://www.playhq.com/basketball-victoria/org/carnegie-basketball-club/e064387a/vofs-junior-domestic-u8-u20-summer-202425/teams/carnegie-chargers-u18-boys-greg-gold/ff08dd3a",
+			"angus_u18": "https://www.playhq.com/basketball-victoria/org/carnegie-basketball-club/e064387a/victorian-oral-and-facial-surgeons-junior-domestic-u8-u20-winter-2025/teams/carnegie-chargers-u18-boys-paul/bd78bc77",
 			"angus_rep": "https://www.playhq.com/basketball-victoria/org/mckinnon-cougars-basketball-club/5f84fbd9/victorian-junior-basketball-league-2025/teams/mckinnon-u18-boys-1/c5d5e1ff",
 			"angus_u20": "https://www.playhq.com/basketball-victoria/org/mckinnon-cougars-basketball-club/5f84fbd9/victorian-junior-basketball-league-2025/teams/mckinnon-u20-boys-1-vjl/859fbca2",
 			//"angus_u16" : "https://www.playhq.com/basketball-victoria/org/carnegie-basketball-club/e064387a/vofs-junior-domestic-u8-u20-winter-2024/teams/carnegie-chargers-u16-boys-joaquin-gold/80a05482",
